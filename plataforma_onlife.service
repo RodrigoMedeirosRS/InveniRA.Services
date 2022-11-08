@@ -1,0 +1,17 @@
+[Unit]
+Description=Plataforma OnLife
+
+[Service]
+WorkingDirectory=/usr/local/nginx/servicos_netcore/plataforma_onlife
+ExecStart=/usr/local/nginx/servicos_netcore/plataforma_onlife/API
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=rest_live
+User=root
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
